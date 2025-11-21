@@ -1,3 +1,5 @@
+import SectionShell from './SectionShell';
+
 const milestones = [
   { year: '2025', text: 'Started B.Com at Delhi University', icon: '🎓' },
   { year: '2025', text: 'Enrolled for Company Secretary Course', icon: '🧠' },
@@ -7,31 +9,28 @@ const milestones = [
 
 const Timeline = () => {
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-6 max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">My Learning Journey</h2>
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-white/20 via-white/10 to-transparent" />
-          <div className="space-y-10">
-            {milestones.map((m, idx) => (
-              <div key={idx} className="relative grid sm:grid-cols-2 gap-6 items-center">
-                <div className={`sm:text-right ${idx % 2 === 0 ? 'sm:pr-12' : 'sm:order-2 sm:pl-12'}`}>
-                  <div className="inline-flex items-center gap-2 text-indigo-200/90">
-                    <span className="text-2xl">{m.icon}</span>
-                    <span className="text-sm uppercase tracking-wider">{m.year}</span>
-                  </div>
-                  <h3 className="text-white text-lg mt-2">{m.text}</h3>
+    <SectionShell id="journey" title="My Learning Journey" subtitle="Milestones that shaped my path">
+      <div className="relative">
+        {/* Vertical line */}
+        <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-white/20 via-white/10 to-transparent" />
+        <div className="space-y-10">
+          {milestones.map((m, idx) => (
+            <div key={idx} className="relative grid sm:grid-cols-2 gap-6 items-center">
+              <div className={`${idx % 2 === 0 ? 'sm:pr-12 sm:text-right' : 'sm:order-2 sm:pl-12'}`}>
+                <div className="inline-flex items-center gap-2 text-indigo-200/90">
+                  <span className="text-2xl">{m.icon}</span>
+                  <span className="text-sm uppercase tracking-wider">{m.year}</span>
                 </div>
-                <div className={`hidden sm:block ${idx % 2 === 0 ? '' : 'order-1'}`}> 
-                  <div className="h-3 w-3 rounded-full bg-gradient-to-tr from-fuchsia-400 via-indigo-500 to-cyan-400 shadow-[0_0_20px_rgba(99,102,241,0.7)] mx-auto" />
-                </div>
+                <h3 className="text-white text-lg mt-2">{m.text}</h3>
               </div>
-            ))}
-          </div>
+              <div className={`hidden sm:block ${idx % 2 === 0 ? '' : 'order-1'}`}> 
+                <div className="h-3 w-3 rounded-full bg-gradient-to-tr from-fuchsia-400 via-indigo-500 to-cyan-400 shadow-[0_0_20px_rgba(99,102,241,0.7)] mx-auto" />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </section>
+    </SectionShell>
   );
 };
 

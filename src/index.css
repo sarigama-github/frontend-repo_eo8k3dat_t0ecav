@@ -15,10 +15,17 @@
   html {
     font-family: var(--font-sans);
     font-feature-settings: "rlig" 1, "calt" 1;
+    scroll-behavior: smooth;
+    background: #070816;
   }
 
   body {
-    @apply antialiased;
+    @apply antialiased text-white;
+  }
+
+  ::selection {
+    background: rgba(99,102,241,0.35);
+    color: white;
   }
 }
 
